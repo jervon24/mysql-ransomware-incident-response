@@ -31,20 +31,9 @@ The ransom note claims the data was copied first. **The logs do not confirm that
 
 ## Attack chain
 
-```mermaid
-flowchart LR
-    A["Internet-exposed MySQL<br/>port open to the world"] --> B["Passwordless probes<br/>root / admin / sa<br/>from Oct 10 20:19"]
-    B --> C["Valid root logon<br/>Oct 10 21:35"]
-    C --> E["Ransom note written<br/>RECOVER_YOUR_DATA<br/>Oct 12 00:10:43"]
-    E --> D["Schema discovery<br/>size and column queries"]
-    D --> F["DROP DATABASE x3<br/>bby_corp, sakila, world"]
-    F --> G["PURGE BINARY LOGS<br/>RESET MASTER"]
-    G --> H["SHUTDOWN"]
-    H --> I["Root logons continue<br/>to Oct 17"]
-    style F fill:#c0392b,color:#fff
-    style G fill:#c0392b,color:#fff
-    style E fill:#e67e22,color:#fff
-```
+
+<img width="4152" height="1521" alt="attack-chain" src="https://github.com/user-attachments/assets/49869bf3-0df2-4802-a69f-42cad24bb906" />
+
 
 ## MITRE ATT&CK mapping
 
