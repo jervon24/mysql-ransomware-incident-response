@@ -15,7 +15,7 @@
 
 ---
 
-## TL;DR
+## Summary
 
 An attacker logged into MySQL on `corp-retail-group` from the internet as `root` on **Oct 10, 2026**, and on **Oct 12 at 00:10** left a ransom note (0.0101 BTC, 48 hours), dropped three databases (including `bby_corp`), purged the binary logs and shut the server down. Root logins from attacker-linked addresses continued for five more days. Every failed external MySQL logon was a passwordless probe and no wrong-password attempt is logged, so the `root` credential was most likely already known, reused or empty (source not determined).
 
