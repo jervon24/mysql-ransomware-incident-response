@@ -37,7 +37,7 @@ flowchart LR
     B --> C["Valid root logon<br/>Oct 10 21:35"]
     C --> E["Ransom note written<br/>RECOVER_YOUR_DATA<br/>Oct 12 00:10:43"]
     E --> D["Schema discovery<br/>size and column queries"]
-    D --> F["DROP DATABASE x3<br/>lnp_corp, sakila, world"]
+    D --> F["DROP DATABASE x3<br/>bby_corp, sakila, world"]
     F --> G["PURGE BINARY LOGS<br/>RESET MASTER"]
     G --> H["SHUTDOWN"]
     H --> I["Root logons continue<br/>to Oct 17"]
@@ -53,7 +53,7 @@ flowchart LR
 | Initial Access | T1133 External Remote Services | MySQL listening on `0.0.0.0`; inbound connections from public IPs |
 | Credential Access | T1110.001 Password Guessing (Windows only) | 297 failed `administrator` network logons. The 461 failed external MySQL logons were passwordless probes, not password guesses |
 | Initial Access / Persistence | T1078 Valid Accounts | Successful remote `root` logons from Oct 10 21:35, with no wrong-password attempts before them |
-| Impact | T1485 Data Destruction | `DROP DATABASE` on `lnp_corp`, `sakila`, `world` |
+| Impact | T1485 Data Destruction | `DROP DATABASE` on `bby_corp`, `sakila`, `world` |
 | Defense Evasion | T1070 Indicator Removal | `PURGE BINARY LOGS`, `RESET MASTER` |
 | Impact | T1529 System Shutdown/Reboot | `SHUTDOWN` at 00:11:01 |
 | Impact | T1657 Financial Theft (extortion) | Ransom note: 0.0101 BTC in 48 hours |
