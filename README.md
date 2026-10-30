@@ -45,7 +45,7 @@ The ransom note claims the data was copied first. **The logs do not confirm that
 | Defense Evasion | T1070 Indicator Removal | `PURGE BINARY LOGS`, `RESET MASTER` |
 | Impact | T1529 System Shutdown/Reboot | `SHUTDOWN` at 00:11:01 |
 | Impact | T1657 Financial Theft (extortion) | Ransom note: 0.0101 BTC in 48 hours |
-| Persistence / Privilege Escalation | T1098 Account Manipulation | GRANT CREATE, DROP on root, then REVOKE ALL / GRANT SHUTDOWN at 00:10:45–00:11:00 |
+| Persistence / Privilege Escalation | T1098 Account Manipulation | `GRANT CREATE, DROP` on root, then `REVOKE ALL` / `GRANT SHUTDOWN` at 00:10:45–00:11:00 |
 
 ## What the logs could *not* tell us
 
