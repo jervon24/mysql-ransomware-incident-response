@@ -21,8 +21,8 @@ An attacker logged into MySQL on `corp-retail-group` from the internet as `root`
 
 The ransom note claims the data was copied first. **The logs do not confirm that**, and this report says so rather than guessing.
 
-| | |
-|---|---|
+   | Field | Detail |
+   |---|---|
 | **Type** | Database extortion following unauthorized remote root access (no file encryption) |
 | **Initial access** | Oct 10, 2026 21:35 — first external `root` logon |
 | **Impact event** | Oct 12, 2026 00:10:43 – 00:11:01 |
