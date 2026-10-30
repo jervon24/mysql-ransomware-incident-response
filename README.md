@@ -32,8 +32,7 @@ The ransom note claims the data was copied first. **The logs do not confirm that
 ## Attack chain
 
 
-<img width="4152" height="1521" alt="attack-chain" src="https://github.com/user-attachments/assets/49869bf3-0df2-4802-a69f-42cad24bb906" />
-
+<img width="3136" height="1148" alt="image" src="https://github.com/user-attachments/assets/cf188bbc-7779-4ae2-b71b-4baa4dbbf449" />
 
 ## MITRE ATT&CK mapping
 
