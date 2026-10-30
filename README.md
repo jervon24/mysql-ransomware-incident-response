@@ -39,12 +39,13 @@ The ransom note claims the data was copied first. **The logs do not confirm that
 | Tactic | Technique | Evidence |
 |---|---|---|
 | Initial Access | T1133 External Remote Services | MySQL listening on `0.0.0.0`; inbound connections from public IPs |
-| Credential Access | T1110.001 Password Guessing (Windows only) | 297 failed `administrator` network logons. The 461 failed external MySQL logons were passwordless probes, not password guesses |
+| Credential Access | T1110.001 Password Guessing (Windows only) | 309 failed `administrator` network logons. The 461 failed external MySQL logons were passwordless probes, not password guesses |
 | Initial Access / Persistence | T1078 Valid Accounts | Successful remote `root` logons from Oct 10 21:35, with no wrong-password attempts before them |
 | Impact | T1485 Data Destruction | `DROP DATABASE` on `bby_corp`, `sakila`, `world` |
 | Defense Evasion | T1070 Indicator Removal | `PURGE BINARY LOGS`, `RESET MASTER` |
 | Impact | T1529 System Shutdown/Reboot | `SHUTDOWN` at 00:11:01 |
 | Impact | T1657 Financial Theft (extortion) | Ransom note: 0.0101 BTC in 48 hours |
+| Persistence / Privilege Escalation | T1098 Account Manipulation | GRANT CREATE, DROP on root, then REVOKE ALL / GRANT SHUTDOWN at 00:10:45–00:11:00 |
 
 ## What the logs could *not* tell us
 
