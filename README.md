@@ -27,7 +27,7 @@ The ransom note claims the data was copied first. **The logs do not confirm that
 | **Initial access** | Oct 10, 2026 21:35 — first external `root` logon |
 | **Impact event** | Oct 12, 2026 00:10:43 – 00:11:01 |
 | **Data sources** | Microsoft Defender Advanced Hunting (5 tables) + MySQL audit log |
-| **Full report** | [`report/incident-report.md`](report/incident-report.md) |
+| **Full report** | **[Read the full incident report (PDF)](Incident-Report-MySQL-Ransom-Attack.pdf)** |
 
 ## Attack chain
 
