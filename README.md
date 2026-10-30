@@ -49,28 +49,15 @@ The ransom note claims the data was copied first. **The logs do not confirm that
 
 ## What the logs could *not* tell us
 
-Good incident reports say what they don't know. This one lists:
+Good incident reports say where the evidence stops. This one lists:
 
-- **Whether data was stolen** — no row-level reads of business tables, and no outbound transfer in Defender data.
-- **Which credential worked, and where it came from** — successful logons don't record the password, and no wrong-password attempt is logged, so it was likely already known, reused or empty.
-- **Detection and response times** — no alert, ticket or responder action in the logs.
-- **The attack window itself on the host** — Defender network and file telemetry start ~20 hours after the destruction.
-- **Whether the Windows `administrator` logons are related** — guessing began Oct 11 02:15, before the DB attack, but the first successful logon is ~20 hours after it, and nothing links the two.
+- **Whether data was copied.** The audit log shows no reads of business tables, and Defender shows no connection from `mysqld` to a public address. Network events record connections, not bytes, so theft over an inbound session can't be fully excluded.
+- **Which credential worked, and where it came from.** Successful logons don't record the password, and no wrong-password attempt is logged, so it was likely already known, reused or empty.
+- **Detection and response times.** No alert, ticket or responder action appears in the logs.
+- **Who ran the destructive session.** The successful logon for those connections is missing from the auth export, so attribution to `64.89.163.169` rests on timing and source address.
+- **Whether the Windows `administrator` logons are related.** Guessing began Oct 9, and the first successful logon came on Oct 12, about 20 hours after the destruction. Nothing links the two.
 
-## Repo guide
 
-```
-├── report/incident-report.md      Full 9-section incident report
-├── detections/
-│   ├── hunts/                     12 KQL hunts (Defender Advanced Hunting)
-│   └── alerts/                    2 candidate detection rules
-├── iocs/iocs.csv                  Defanged indicators (observed vs unverified)
-├── evidence/screenshots/          Query result screenshots
-├── docs/PUBLISHING_CHECKLIST.md   Redaction steps before going public
-└── data/                          Raw log exports (git-ignored)
-```
-
-Every KQL file starts with a header giving its purpose, MITRE technique and source tables. All queries run in **Defender Advanced Hunting (UTC)**. The MySQL audit statements cited in the report come from a Log Analytics export and can't be queried there.
 
 ## Top recommendations
 
@@ -78,14 +65,14 @@ Every KQL file starts with a header giving its purpose, MITRE technique and sour
 2. Remove remote `root`, rotate its password, and use per-application accounts with connection throttling.
 3. Close Remote Desktop exposure for the Windows `administrator` account.
 4. Keep immutable off-host backups and ship binary logs elsewhere.
-5. Alert on success-after-guessing and on `DROP DATABASE` / `PURGE BINARY LOGS` / `SHUTDOWN`.
+5. Alert on external administrator logons, public inbound connections to mysqld, and DROP DATABASE / PURGE BINARY LOGS / SHUTDOWN.
 6. Onboard database hosts to Defender before an incident and log full query text.
 
 ## Skills demonstrated
 
-Incident response lifecycle · KQL threat hunting · log correlation across Defender and MySQL audit data · MITRE ATT&CK mapping · IOC handling and defanging · writing for both technical and executive readers · stating evidence limits honestly.
+  Incident response lifecycle · KQL threat hunting · log correlation across Defender and MySQL audit data · MITRE ATT&CK mapping · IOC handling and defanging
 
 ---
 
-<sub>Educational / portfolio project built from lab telemetry. IOCs are defanged. Not affiliated with any vendor.</sub>
+
 
