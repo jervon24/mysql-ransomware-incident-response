@@ -65,7 +65,7 @@ Good incident reports say where the evidence stops. This one lists:
 2. Remove remote `root`, rotate its password, and use per-application accounts with connection throttling.
 3. Close Remote Desktop exposure for the Windows `administrator` account.
 4. Keep immutable off-host backups and ship binary logs elsewhere.
-5. Alert on external administrator logons, public inbound connections to mysqld, and DROP DATABASE / PURGE BINARY LOGS / SHUTDOWN.
+5. Alert on external `administrator` logons, public inbound connections to `mysqld`, and `DROP DATABASE` / `PURGE BINARY LOGS` / `SHUTDOWN`.
 6. Onboard database hosts to Defender before an incident and log full query text.
 
 ## Skills demonstrated
